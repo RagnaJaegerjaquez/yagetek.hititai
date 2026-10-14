@@ -37,13 +37,12 @@
             background-color: #020617;
             color: #e2e8f0;
             overflow-x: hidden;
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='2' fill='%2322d3ee'/%3E%3Ccircle cx='16' cy='16' r='12' fill='none' stroke='%2322d3ee' stroke-width='1' stroke-opacity='0.5'/%3E%3Cpath d='M16 4 v4 M16 24 v4 M4 16 h4 M24 16 h4' stroke='%2322d3ee' stroke-width='2'/%3E%3C/svg%3E") 16 16, auto;
         }
         * {
-            /* cursor hidden removed for accessibility */
-        #cursor {
-            display: none !important;
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='2' fill='%2322d3ee'/%3E%3Ccircle cx='16' cy='16' r='12' fill='none' stroke='%2322d3ee' stroke-width='1' stroke-opacity='0.5'/%3E%3Cpath d='M16 4 v4 M16 24 v4 M4 16 h4 M24 16 h4' stroke='%2322d3ee' stroke-width='2'/%3E%3C/svg%3E") 16 16, auto !important;
         }
-            font-family: 'Space Grotesk', sans-serif;
+        h1, h2, h3, .quantum-font {
         }
         .mono {
             font-family: 'JetBrains Mono', monospace;
@@ -105,19 +104,58 @@
             transform: translateY(0);
         }
         #cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid #22d3ee;
-            border-radius: 50%;
+            width: 30px;
+            height: 30px;
             position: fixed;
             pointer-events: none;
             z-index: 9999;
-            transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease;
+            transition: transform 0.15s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .cursor-hover {
-            width: 40px !important;
-            height: 40px !important;
-            background: rgba(34, 211, 238, 0.1) !important;
+        .cursor-dot {
+            width: 4px;
+            height: 4px;
+            background-color: #22d3ee;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #22d3ee;
+        }
+        .cursor-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgba(34, 211, 238, 0.5);
+            border-radius: 50%;
+            animation: rotateRing 4s linear infinite;
+            transition: all 0.3s ease;
+        }
+        .cursor-ring::before, .cursor-ring::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border: 2px solid #22d3ee;
+            border-radius: 2px;
+        }
+        .cursor-ring::before {
+            top: -2px;
+            left: -2px;
+            border-right: 0;
+            border-bottom: 0;
+        }
+        .cursor-ring::after {
+            bottom: -2px;
+            right: -2px;
+            border-left: 0;
+            border-top: 0;
+        }
+        @keyframes rotateRing {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .cursor-hover-native {
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='3' fill='%23818cf8'/%3E%3Ccircle cx='16' cy='16' r='14' fill='none' stroke='%23818cf8' stroke-width='2'/%3E%3Cpath d='M16 2 v6 M16 24 v6 M2 16 h6 M24 16 h6' stroke='%23818cf8' stroke-width='2'/%3E%3C/svg%3E") 16 16, auto !important;
         }
         .cyber-corner {
             position: fixed;
@@ -333,8 +371,23 @@
             modal.classList.toggle('hidden');
             modal.classList.toggle('flex');
         }
+ 
+        const cursor = document.getElementById('cursor');
+        
+        // Sadece JS çalıştığında standart cursor'ı kapat
+        document.body.style.cursor = 'none';
+        document.querySelectorAll('*').forEach(el => el.style.cursor = 'none');
 
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = (e.clientX - 15) + 'px';
+            cursor.style.top = (e.clientY - 15) + 'px';
+        });
 
+        document.querySelectorAll('button, a, .neon-border-glow').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
+        });
+ 
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
