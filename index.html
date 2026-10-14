@@ -8,8 +8,9 @@
     <meta name="google-site-verification" content="scCIqAo4pzNwzc7nTNyVbRHDlZXYZCHN6KR191J8xDk" />
 
     <!-- Primary Meta Tags -->
+    <link rel="icon" type="image/jpeg" href="../../00_Inbox/club_logo.jpeg">
     <title>Yapay Zeka ve Gelecek Teknolojileri Kulübü | Geleceği İnşa Ediyoruz</title>
-    <meta name="title">Yapay Zeka ve Gelecek Teknolojileri Kulübü | Geleceği İnşa Ediyoruz</meta>
+     <meta name="title" content="Yapay Zeka ve Gelecek Teknolojileri Kulübü | Geleceği İnşa Ediyoruz">
     <meta name="description" content="Hitit Üniversitesi Yapay Zeka ve Gelecek Teknolojileri Kulübü; kuantum hesaplama, derin öğrenme ve NLP alanlarında inovasyon geliştiren, dijital evrimin ön safında yer alan bir öğrenci topluluğudur.">
     <meta name="keywords" content="Yapay Zeka Kulübü, Hitit Üniversitesi, AI Club, Gelecek Teknolojileri, Deep Learning, NLP, Kuantum Hesaplama, Teknoloji Kulübü">
     <meta name="author" content="YAGETEK">
@@ -39,8 +40,9 @@
         }
         * {
             /* cursor hidden removed for accessibility */
+        #cursor {
+            display: none !important;
         }
-        h1, h2, h3, .quantum-font {
             font-family: 'Space Grotesk', sans-serif;
         }
         .mono {
@@ -332,17 +334,6 @@
             modal.classList.toggle('flex');
         }
 
-
-        const cursor = document.getElementById('cursor');
-        document.addEventListener('mousemove', e => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        document.querySelectorAll('button, a, .neon-border-glow').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
-        });
 
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");

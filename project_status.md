@@ -7,14 +7,21 @@ Proje, modern bir "Cyberpunk/Quantum" estetiğiyle tasarlanmış, tek sayfalık 
 - **Teknoloji Yığını:** HTML5, Tailwind CSS, Vanilla JavaScript.
 - **Tasarım Teması:** Koyu arka plan (`#020617`), neon gradyanlar, cam efektleri (Glassmorphism).
 - **Kritik Özellikler:**
-    - İnteraktif parçacık sistemi (Particle Canvas).
-    - Dinamik fare imleci takibi.
-    - Scroll-reveal animasyonları.
-    - SEO uyumlu JSON-LD yapısal veri entegrasyonu.
+    - İnteraktif parçacık sistemi (Particle Canvas): Arka planda dinamik bağlantılı noktalar oluşturur.
+    - Dinamik fare imleci takibi: Kullanıcı etkileşimlerini görselleştiren özel `cursor` elementi.
+    - Scroll-reveal animasyonları: Sayfa aşağı kaydırıldıkça elementlerin yumuşak geçişle belirmesi.
+    - SEO uyumlu JSON-LD yapısal veri entegrasyonu: Arama motorları için `Organization` şeması tanımlanmıştır.
+    - Özel Tipografi: 'Space Grotesk' (Başlıklar), 'Inter' (Gövde) ve 'JetBrains Mono' (Sistem notları) kullanımıyla teknolojik atmosfer pekiştirilmiştir.
 
 ## 📝 Son Güncellemeler
 - **Üyelik Butonu Entegrasyonu:** "Kulübe Katıl" butonu, özel neon tasarım ve animasyonlarla birlikte Hero Section'a eklenmiştir.
 - **Link Güncellemesi:** Üyelik butonu resmi üniversite kulüp portalına (`https://kulupler.hitit.edu.tr/`) yönlendirilmiştir.
+
+## 🎯 Hedef Kitle ve Konumlandırma
+- **Kurum:** Hitit Üniversitesi Yapay Zeka ve Gelecek Teknolojileri Kulübü (YAGETEK).
+- **Odak Alanları:** Kuantum Hesaplama, Derin Öğrenme, Bilgisayar Görüsü ve Doğal Dil İşleme (NLP).
+- **Slogan:** "Sınırların Ötesine Geç."
+- **İletişim Kanalları:** Instagram (@hitityagetek), WhatsApp Topluluğu ve doğrudan telefon hattı ile entegre iletişim modeli.
 
 ## ☁️ Deployment & CI/CD
 - **Platform:** Vercel.
